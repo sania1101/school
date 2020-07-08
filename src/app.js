@@ -1,11 +1,12 @@
 const express = require('express')
 const database = require('./db/conection')
+const bodyParser = require('body-parser')
 const app = express()
 
+app.use(bodyParser.urlencoded({extended:true}))
 
-app.get('/', (req, res) => {
-    res.send("adsasdasd");
-});
+app.use('/', require("./routes/index"))
+app.use('/lesson', require("./routes/lesson"))
 
 database()
     .then(info=>{
