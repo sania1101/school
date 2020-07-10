@@ -4,9 +4,14 @@ const bodyParser = require('body-parser')
 const app = express()
 
 app.use(bodyParser.urlencoded({extended:true}))
+app.use(express.json({extended:true}))
 
 app.use('/', require("./routes/index"))
 app.use('/lesson', require("./routes/lesson"))
+app.use('/group', require("./routes/group"))
+app.use('/classroom', require("./routes/classroom"))
+app.use('/student', require("./routes/student"))
+app.use('/teacher', require("./routes/teacher"))
 
 database()
     .then(info=>{

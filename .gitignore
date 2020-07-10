@@ -1,3 +1,8 @@
 node_modules/
 sh.vsdx
 rest_test_api.rest
+package-lock.json
+group.rest
+teacher.rest
+students.rest
+lesson.rest
