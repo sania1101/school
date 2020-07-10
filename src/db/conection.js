@@ -1,4 +1,4 @@
-//const config = require('./config');
+require('dotenv').config()
 const mongoose = require('mongoose');
 
 module.exports = () => {
@@ -11,6 +11,6 @@ module.exports = () => {
       .on('close', () => console.log('Database connection closed.'))
       .once('open', () => resolve(mongoose.connections[0]));
 
-    mongoose.connect("mongodb://localhost:27017/testTask", { useNewUrlParser: true, useUnifiedTopology: true});
+    mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true});
   });
 };

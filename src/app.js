@@ -1,4 +1,5 @@
 const express = require('express')
+require('dotenv').config()
 const database = require('./db/conection')
 const bodyParser = require('body-parser')
 const app = express()
@@ -16,8 +17,8 @@ app.use('/teacher', require("./routes/teacher"))
 database()
     .then(info=>{
         console.log(`Connected to ${info.host}:${info.port}/${info.name}`)
-        app.listen(3000, () => 
-            console.log(`Example app listening on port ${3000}!`)
+        app.listen(process.env.PORT, () => 
+            console.log(`Example app listening on port ${process.env.PORT}!`)
         ) 
     })
     .catch(()=>{
